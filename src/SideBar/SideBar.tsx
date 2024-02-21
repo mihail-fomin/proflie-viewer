@@ -55,11 +55,11 @@ const SideBar = () => {
   return (
     <nav className={styles.sidebar}>
       <h2>Поиск сотрудников</h2>
-      <input placeholder="Введите Id или имя " />
+      <input placeholder="Введите Id или имя" />
       <h2>Результаты</h2>
       <ul className={styles.sidebar__userlist}>
         {users.map((user) => (
-          <li className={styles.sidebar__user}>
+          <li key={user.id} className={styles.sidebar__user}>
             <img src={userImage} alt="user avatar" />
             <div className={styles.userInfo}>
               <p className={styles.sidebar__username}>{user.username}</p>

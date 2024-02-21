@@ -1,4 +1,3 @@
-import 'normalize.css'
 import './assets/styles/globals.scss'
 import Header from './Header/Header'
 import SideBar from './SideBar/SideBar'
