@@ -1,56 +1,29 @@
 import React from 'react'
 import styles from './SideBar.module.scss'
 import userImage from '../assets/userImage.svg'
+import classNames from 'classnames'
 
 const SideBar = () => {
-  const users = [
-    {
-      id: 1,
-      name: 'Leanne Graham',
-      username: 'Bret',
-      email: 'Sincere@april.biz',
-      address: {
-        street: 'Kulas Light',
-        suite: 'Apt. 556',
-        city: 'Gwenborough',
-        zipcode: '92998-3874',
-        geo: {
-          lat: '-37.3159',
-          lng: '81.1496',
-        },
-      },
-      phone: '1-770-736-8031 x56442',
-      website: 'hildegard.org',
-      company: {
-        name: 'Romaguera-Crona',
-        catchPhrase: 'Multi-layered client-server neural-net',
-        bs: 'harness real-time e-markets',
-      },
-    },
-    {
-      id: 2,
-      name: 'Ervin Howell',
-      username: 'Antonette',
-      email: 'Shanna@melissa.tv',
-      address: {
-        street: 'Victor Plains',
-        suite: 'Suite 879',
-        city: 'Wisokyburgh',
-        zipcode: '90566-7771',
-        geo: {
-          lat: '-43.9509',
-          lng: '-34.4618',
-        },
-      },
-      phone: '010-692-6593 x09125',
-      website: 'anastasia.net',
-      company: {
-        name: 'Deckow-Crist',
-        catchPhrase: 'Proactive didactic contingency',
-        bs: 'synergize scalable supply-chains',
-      },
-    },
-  ]
+  const [selectedUserId, setSelectedUserId] = React.useState(null)
+  const [users, setUsers] = React.useState([])
+
+  const fetchUsers = async () => {
+    try {
+      const response = await fetch('https://jsonplaceholder.typicode.com/users')
+      const data = await response.json() // Преобразуем ответ в формат JSON
+      setUsers(data) // Обновляем состояние с полученными пользователями
+    } catch (error) {
+      console.error('Error fetching users:', error)
+    }
+  }
+
+  React.useEffect(() => {
+    fetchUsers()
+  }, [])
+
+  const handleUserClick = (userId) => {
+    setSelectedUserId(userId) // Обновляем состояние при клике на пользователя
+  }
 
   return (
     <nav className={styles.sidebar}>
@@ -59,9 +32,15 @@ const SideBar = () => {
       <h2>Результаты</h2>
       <ul className={styles.sidebar__userlist}>
         {users.map((user) => (
-          <li key={user.id} className={styles.sidebar__user}>
+          <li
+            key={user.id}
+            className={classNames(styles.sidebar__user, {
+              [styles.sidebar__user_active]: selectedUserId === user.id,
+            })}
+            onClick={() => handleUserClick(user.id)} // Вызываем функцию при клике на пользователя
+          >
             <img src={userImage} alt="user avatar" />
-            <div className={styles.userInfo}>
+            <div className={styles.sidebar__userInfo}>
               <p className={styles.sidebar__username}>{user.username}</p>
               <p className={styles.sidebar__email}>{user.email}</p>
             </div>
