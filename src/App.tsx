@@ -1,10 +1,7 @@
 import './App.css'
 
 function App() {
-
-  return (
-    <>First commit</>
-  )
+  return <h1>First commit</h1>
 }
 
 export default App
