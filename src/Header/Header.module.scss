@@ -1,6 +1,10 @@
+@import '../assets/styles/variables.scss';
+
 .header {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    height: $headerHeight;
 
     &__logo {
         font-weight: 700;

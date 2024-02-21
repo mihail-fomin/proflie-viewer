@@ -1,0 +1,11 @@
+@import '../assets/styles/variables.scss';
+
+.sidebar {
+    flex: 1 1 40%;
+    overflow-y: auto; // Добавляем вертикальный скролл
+    min-height: 589px;
+    max-height: calc(100vh - #{$headerHeight} - 6rem); // Вычисляем оставшуюся высоту за вычетом высоты заголовка
+    background-color: #FDFDFD;
+    padding: 0 1rem;
+    border-radius: 0.5rem 0 0 0.5rem;
+}
