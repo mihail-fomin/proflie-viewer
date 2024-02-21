@@ -2,26 +2,18 @@ import React from 'react'
 import styles from './SideBar.module.scss'
 import userImage from '../assets/userImage.svg'
 import classNames from 'classnames'
+import { useGetUsersQuery } from '../store/userApi';
+
 
 const SideBar = () => {
-  const [selectedUserId, setSelectedUserId] = React.useState(null)
-  const [users, setUsers] = React.useState([])
+  const [selectedUserId, setSelectedUserId] = React.useState<number | null>(null)
+  const { data: users = [], error, isLoading } = useGetUsersQuery();
 
-  const fetchUsers = async () => {
-    try {
-      const response = await fetch('https://jsonplaceholder.typicode.com/users')
-      const data = await response.json() // Преобразуем ответ в формат JSON
-      setUsers(data) // Обновляем состояние с полученными пользователями
-    } catch (error) {
-      console.error('Error fetching users:', error)
-    }
-  }
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: </div>;
 
-  React.useEffect(() => {
-    fetchUsers()
-  }, [])
 
-  const handleUserClick = (userId) => {
+  const handleUserClick = (userId: number) => {
     setSelectedUserId(userId) // Обновляем состояние при клике на пользователя
   }
 
