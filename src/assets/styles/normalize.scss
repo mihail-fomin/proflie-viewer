@@ -1,0 +1,35 @@
+/* Обнуление отступов и полей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Обнуление стандартных стилей списков */
+  ul, ol {
+    list-style: none;
+  }
+  
+  /* Обнуление стандартных стилей ссылок */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  /* Обнуление стандартных стилей заголовков */
+  h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+  }
+  
+  /* Обнуление стандартных стилей кнопок */
+  button, input, select, textarea {
+    background: none;
+    border: none;
+    font: inherit;
+  }
+  
+  /* Обнуление стандартных стилей форм */
+  form {
+    display: block;
+  }

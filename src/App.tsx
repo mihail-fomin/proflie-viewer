@@ -1,4 +1,5 @@
-import './App.css'
+import 'normalize.css'
+import './assets/styles/globals.scss'
 import Header from './Header/Header'
 import SideBar from './SideBar/SideBar'
 import UserProfile from './UserProfile/UserProfile'
