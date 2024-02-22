@@ -1,0 +1,20 @@
+.userItem {
+  display: flex;
+  box-shadow: 0px 0px 10px 0px #0000001A;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.userItem.active .userInfo {
+  background-color: #E0E0E0;
+}
+
+.userInfo {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+.username {
+  font-weight: 700;
+}

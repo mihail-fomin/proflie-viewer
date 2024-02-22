@@ -17,14 +17,18 @@ export const userApi = createApi({
   }),
   tagTypes: ['Users'],
   endpoints: (builder) => ({
-    getUsers: builder.query<User[], void>({
-      query: () => 'users',
-      providesTags: ['Users'],
+    // endpoint для поиска одного пользователя по id
+    getUserById: builder.query<User, string>({
+      query: (id) => `users?id=${id}`,
+    }),
+    // endpoint для поиска нескольких пользователей по id
+    getUsersByIds: builder.query<User[], number[]>({
+      query: (ids) => `users?${ids.map((id) => `id=${id}`).join('&')}`, // Формируем запрос на сервер
     }),
   }),
 })
 
-export const { useGetUsersQuery } = userApi
+export const { useGetUserByIdQuery, useGetUsersByIdsQuery } = userApi
 
 export const userSlice = createSlice({
   name: 'user',
