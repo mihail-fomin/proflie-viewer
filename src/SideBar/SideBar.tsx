@@ -1,20 +1,21 @@
-import React from 'react'
 import styles from './SideBar.module.scss'
 import userImage from '../assets/userImage.svg'
 import classNames from 'classnames'
-import { useGetUsersQuery } from '../store/userApi';
-
+import { setActiveUser, useGetUsersQuery } from '../store/userApi'
+import { useDispatch, useSelector } from 'react-redux'
+import { User } from '../store/types'
+import { RootState } from '../store'
 
 const SideBar = () => {
-  const [selectedUserId, setSelectedUserId] = React.useState<number | null>(null)
-  const { data: users = [], error, isLoading } = useGetUsersQuery();
+  const dispatch = useDispatch()
+  const { data: users = [], error, isLoading } = useGetUsersQuery()
+  const activeUser = useSelector((state: RootState) => state.user.activeUser)
 
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: </div>;
+  if (isLoading) return <div>Loading...</div>
+  if (error) return <div>Error: {JSON.stringify(error)}</div>
 
-
-  const handleUserClick = (userId: number) => {
-    setSelectedUserId(userId) // Обновляем состояние при клике на пользователя
+  const handleUserClick = (user: User) => {
+    dispatch(setActiveUser(user))
   }
 
   return (
@@ -27,9 +28,9 @@ const SideBar = () => {
           <li
             key={user.id}
             className={classNames(styles.sidebar__user, {
-              [styles.sidebar__user_active]: selectedUserId === user.id,
+              [styles.sidebar__user_active]: activeUser?.id === user.id,
             })}
-            onClick={() => handleUserClick(user.id)} // Вызываем функцию при клике на пользователя
+            onClick={() => handleUserClick(user)}
           >
             <img src={userImage} alt="user avatar" />
             <div className={styles.sidebar__userInfo}>
