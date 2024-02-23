@@ -11,22 +11,36 @@ interface Props {
 
 const UserList: React.FC<Props> = ({ searchQuery }) => {
   const dispatch = useDispatch()
+  const skip = !!!searchQuery
   const activeUser = useSelector((state: RootState) => state.user.activeUser)
-  const { data: users } = useGetUserByIdQuery(searchQuery)
+  const { data: users, error, isLoading, isUninitialized } = useGetUserByIdQuery(searchQuery, {skip})
+  console.log('users: ', users);
 
   return (
-    <ul className={styles.userList}>
-      {Array.isArray(users) &&
-        users.map((user) => (
-          <UserItem
-            key={user.id}
-            user={user}
-            isActive={activeUser?.id === user.id}
-            onClick={() => dispatch(setActiveUser(user))}
-          />
-        ))}
-    </ul>
-  )
+    <>
+      {error ? (
+        <>Ошибка</>
+      ) : isUninitialized ? (
+        <p>начните поиск</p>
+      ) : isLoading ? (
+        <>Loading...</>
+      ) : users.length === 0 ? (
+        <p>ничего не найдено</p>
+      ) : (
+        <ul className={styles.userList}>
+          {users.map((user) => (
+            <UserItem
+              key={user.id}
+              user={user}
+              isActive={activeUser?.id === user.id}
+              onClick={() => dispatch(setActiveUser(user))}
+            />
+          ))}
+        </ul>
+      )}
+    </>
+  );
+  
 }
 
 export default UserList
