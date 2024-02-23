@@ -11,7 +11,6 @@ function App() {
         <SideBar />
         <UserProfile />
       </main>
-      {/* <h1>First commit</h1> */}
     </>
   )
 }

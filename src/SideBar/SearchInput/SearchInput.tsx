@@ -1,4 +1,6 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { setActiveUser } from '../../store/userApi'
 
 interface SearchInputProps {
   value: string
@@ -6,6 +8,12 @@ interface SearchInputProps {
 }
 
 const SearchInput: React.FC<SearchInputProps> = ({ value, onChange }) => {
+  const dispatch = useDispatch()
+
+  if (!value) {
+    dispatch(setActiveUser(null))
+  }
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
     // Валидация: докпускается вводить латинницу, цифры, запятые и пробелы
