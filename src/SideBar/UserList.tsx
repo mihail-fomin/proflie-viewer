@@ -3,7 +3,7 @@ import styles from './UserList.module.scss'
 import UserItem from './UserItem'
 import { RootState } from '../store'
 import { useDispatch, useSelector } from 'react-redux'
-import { setActiveUser, useGetUserByIdQuery } from '../store/userApi'
+import { setActiveUser, useGetUsersByIdsQuery } from '../store/userApi'
 
 interface Props {
   searchQuery: string
@@ -11,10 +11,15 @@ interface Props {
 
 const UserList: React.FC<Props> = ({ searchQuery }) => {
   const dispatch = useDispatch()
-  const skip = !!!searchQuery
+
+  const skip = !searchQuery
   const activeUser = useSelector((state: RootState) => state.user.activeUser)
-  const { data: users, error, isLoading, isUninitialized } = useGetUserByIdQuery(searchQuery, {skip})
-  console.log('users: ', users);
+  const {
+    data: users,
+    error,
+    isLoading,
+    isUninitialized,
+  } = useGetUsersByIdsQuery(searchQuery, { skip })
 
   return (
     <>
@@ -39,8 +44,7 @@ const UserList: React.FC<Props> = ({ searchQuery }) => {
         </ul>
       )}
     </>
-  );
-  
+  )
 }
 
 export default UserList
