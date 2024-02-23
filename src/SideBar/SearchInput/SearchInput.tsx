@@ -10,9 +10,13 @@ interface SearchInputProps {
 const SearchInput: React.FC<SearchInputProps> = ({ value, onChange }) => {
   const dispatch = useDispatch()
 
-  if (!value) {
-    dispatch(setActiveUser(null))
-  }
+  // использовать useEffect, чтобы обновлять конекст при изменении value
+  // только после завершения рендеринга компонента SearchInput
+  React.useEffect(() => {
+    if (!value) {
+      dispatch(setActiveUser(null))
+    }
+  }, [value, dispatch])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = e.target.value
