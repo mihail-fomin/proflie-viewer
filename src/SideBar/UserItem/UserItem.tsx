@@ -1,8 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
-import userImage from '@/src/assets/userImage.svg'
+import userImage from '../assets/userImage.svg'
 import styles from './UserItem.module.scss'
-import { User } from '../store/types'
+import { User } from '../../store/types'
 
 interface UserItemProps {
   user: User

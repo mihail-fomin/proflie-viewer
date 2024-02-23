@@ -1,9 +1,9 @@
 import React from 'react'
 import styles from './UserList.module.scss'
-import UserItem from './UserItem'
-import { RootState } from '../store'
+import UserItem from '../UserItem/UserItem'
+import { RootState } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
-import { setActiveUser, useGetUsersByIdsQuery } from '../store/userApi'
+import { setActiveUser, useGetUsersByIdsQuery } from '../../store/userApi'
 
 interface Props {
   searchQuery: string

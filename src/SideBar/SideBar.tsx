@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './SideBar.module.scss'
-import UserList from './UserList'
-import SearchInput from './SearchInput'
+import UserList from './UserList/UserList'
+import SearchInput from './SearchInput/SearchInput'
 
 const SideBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
