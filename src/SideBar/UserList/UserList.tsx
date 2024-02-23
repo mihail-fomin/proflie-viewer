@@ -4,6 +4,9 @@ import UserItem from '../UserItem/UserItem'
 import { RootState } from '../../store'
 import { useDispatch, useSelector } from 'react-redux'
 import { setActiveUser, useGetUsersByIdsQuery } from '../../store/userApi'
+import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
+import { Box } from './SkeletonContainer'
 
 interface Props {
   searchQuery: string
@@ -18,8 +21,10 @@ const UserList: React.FC<Props> = ({ searchQuery }) => {
     data: users,
     error,
     isLoading,
+    isFetching,
     isUninitialized,
   } = useGetUsersByIdsQuery(searchQuery, { skip })
+
 
   return (
     <>
@@ -28,9 +33,13 @@ const UserList: React.FC<Props> = ({ searchQuery }) => {
       ) : isUninitialized ? (
         <p>начните поиск</p>
       ) : isLoading ? (
-        <>Loading...</>
+        <Skeleton height='4rem'/>
       ) : users.length === 0 ? (
         <p>ничего не найдено</p>
+      ) : isFetching ? (
+          <Box>
+            <Skeleton height='4rem' count={searchQuery.split(',').length}/>
+          </Box>
       ) : (
         <ul className={styles.userList}>
           {users.map((user) => (
