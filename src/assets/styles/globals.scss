@@ -1,73 +1,73 @@
 @import 'normalize';
 
 a {
-    font-weight: 500;
-    color: #646cff;
-    text-decoration: inherit;
-  }
-  
-  a:hover {
-    color: #535bf2;
-  }
-  
-  body {
-    display: flex;
-    min-width: 320px;
-    min-height: 100vh;
-  }
-  
-  button {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    padding: 0.6em 1.2em;
-    font-size: 1em;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: #1a1a1a;
-    cursor: pointer;
-    transition: border-color 0.25s;
-  }
-  
-  button:hover {
-    border-color: #646cff;
-  }
-  
-  button:focus,
-  button:focus-visible {
-    outline: 4px auto -webkit-focus-ring-color;
-  }
-  
-  @font-face {
-      font-family: 'Montserrat';
-      src: url('/fonts/Montserrat-Regular.ttf') format('ttf');
-      font-weight: normal;
-      font-style: normal;
-  }
-  
-  @font-face {
-      font-family: 'Montserrat';
-      src: url('/fonts/Montserrat-Bold.ttf') format('ttf');
-      font-weight: bold;
-      font-style: normal;
-  }
-  
-  body {
-      font-family: 'Montserrat', sans-serif;
-      color: #333333;
-  }
-  
-  #root {
-      max-width: 100%;
-      margin: 0 auto;
-      padding: 2rem;
-    //   text-align: center;
-  }
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
 
-  .main {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: space-between;
-      border: 1px solid #DEDEDD;
-      border-radius: 0.5rem;
-      box-shadow: 0px 0px 10px 0px #0000001A;
-  }
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('/fonts/Montserrat-Bold.ttf') format('ttf');
+  font-weight: bold;
+  font-style: normal;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: #333333;
+}
+
+#root {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  //   text-align: center;
+}
+
+.main {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #dededd;
+  border-radius: 0.5rem;
+  box-shadow: 0px 0px 10px 0px #0000001a;
+}

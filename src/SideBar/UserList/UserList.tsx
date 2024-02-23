@@ -14,7 +14,7 @@ interface Props {
 
 const UserList: React.FC<Props> = ({ searchQuery }) => {
   const dispatch = useDispatch()
-  
+
   // считать неавлидной строку, состоящую только из "," и " "
   const isInvalid = /^[, ]*$/.test(searchQuery)
   const skip = !searchQuery || isInvalid
@@ -28,7 +28,6 @@ const UserList: React.FC<Props> = ({ searchQuery }) => {
     isUninitialized,
   } = useGetUsersByIdsQuery(searchQuery, { skip })
 
-
   return (
     <>
       {error ? (
@@ -36,13 +35,13 @@ const UserList: React.FC<Props> = ({ searchQuery }) => {
       ) : isUninitialized ? (
         <p>начните поиск</p>
       ) : isLoading ? (
-        <Skeleton height='4.5rem'/>
+        <Skeleton height="4.5rem" />
       ) : users.length === 0 ? (
         <p>ничего не найдено</p>
       ) : isFetching ? (
-          <Box>
-            <Skeleton height='4.5rem' count={searchQuery.split(',').length}/>
-          </Box>
+        <Box>
+          <Skeleton height="4.5rem" count={searchQuery.split(',').length} />
+        </Box>
       ) : (
         <ul className={styles.userList}>
           {users.map((user) => (

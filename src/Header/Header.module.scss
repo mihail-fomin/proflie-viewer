@@ -1,16 +1,15 @@
 @import '../assets/styles/variables.scss';
 
 .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: $headerHeight;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: $headerHeight;
 
-    &__logo {
-        font-size: 2rem;
-        font-weight: 700;
-        color: #E31F24;
-        line-height: 1.2rem;
-    }
+  &__logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #e31f24;
+    line-height: 1.2rem;
+  }
 }
-
