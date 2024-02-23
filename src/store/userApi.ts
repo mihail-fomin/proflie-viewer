@@ -19,6 +19,8 @@ const prepareQuery = (searchString: string): string => {
   searchItems.forEach((item) => {
     // Убираем пробелы с начала и конца строки
     const trimmedItem = item.trim()
+
+    if (!trimmedItem) return
     // Если элемент представляет собой число, то добавляем условие поиска по id
     if (!isNaN(Number(trimmedItem))) {
       conditions.push(`id=${trimmedItem}`)
@@ -41,7 +43,6 @@ export const userApi = createApi({
   }),
   tagTypes: ['Users'],
   endpoints: (builder) => ({
-    // endpoint для поиска одного пользователя по id
     getUsersByIds: builder.query<User[], string>({
       query: (searchString) => prepareQuery(searchString),
     }),

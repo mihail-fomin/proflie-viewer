@@ -15,7 +15,10 @@ interface Props {
 const UserList: React.FC<Props> = ({ searchQuery }) => {
   const dispatch = useDispatch()
 
-  const skip = !searchQuery
+  // считать неавлидной строку, состоящую только из "," и " "
+  const isInvalid = /^[, ]*$/.test(searchQuery)
+  const skip = !searchQuery || isInvalid
+
   const activeUser = useSelector((state: RootState) => state.user.activeUser)
   const {
     data: users,
