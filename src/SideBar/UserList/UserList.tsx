@@ -31,7 +31,7 @@ const UserList: React.FC<Props> = ({ searchQuery }) => {
   return (
     <>
       {error ? (
-        <>Ошибка</>
+        <>Ошибка при поиске пользователей</>
       ) : isUninitialized ? (
         <p>начните поиск</p>
       ) : isLoading ? (
