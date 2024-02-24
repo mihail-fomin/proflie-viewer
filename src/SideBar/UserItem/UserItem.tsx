@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import userImage from '../../assets/userImage.svg'
+import userPreviewImage from '../../assets/userPreviewImage.svg'
 import styles from './UserItem.module.scss'
 import { User } from '../../store/types'
 
@@ -18,9 +18,9 @@ const UserItem: React.FC<UserItemProps> = ({ user, isActive, onClick }) => {
       })}
       onClick={onClick}
     >
-      <img src={userImage} alt="user avatar" />
+      <img src={userPreviewImage} alt="user avatar" />
       <div className={styles.userInfo}>
-        <p className={styles.username}>{user.username}</p>
+        <h3 className={styles.username}>{user.username}</h3>
         <p className={styles.email}>{user.email}</p>
       </div>
     </li>

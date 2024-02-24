@@ -29,7 +29,14 @@ const SearchInput: React.FC<SearchInputProps> = ({ value, onChange }) => {
     onChange(newValue)
   }
 
-  return <input type="text" value={value} onChange={handleChange} />
+  return (
+    <input
+      type="text"
+      value={value}
+      onChange={handleChange}
+      placeholder="Введите Id или имя"
+    />
+  )
 }
 
 export default SearchInput
