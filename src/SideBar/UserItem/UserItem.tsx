@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import userImage from '../../assets/userPreviewImage.svg'
+import userImage from '../../assets/svg/userPreviewImage.svg'
 import styles from './UserItem.module.scss'
 import { User } from '../../store/types'
 

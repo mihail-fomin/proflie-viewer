@@ -1,7 +1,7 @@
 import styles from './UserProfile.module.scss'
 import { useSelector } from 'react-redux'
 import type { RootState } from '../store/index'
-import userImage from '../assets/userImage.svg'
+import userImage from '../assets/svg/userImage.svg'
 
 const UserProfile = () => {
   const activeUser = useSelector((state: RootState) => state.user.activeUser)
