@@ -1,8 +1,9 @@
 @import '../assets/styles/variables.scss';
 
 .sidebar {
+  position: relative;
   width: 25rem;
-  flex: 1 0 25rem;
+  flex: 1 1 25rem;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -20,39 +21,60 @@
   }
 
   & input {
-    padding: 0.75rem;
-    border: 1.5px solid #e9ecef;
     border-radius: 0.5rem;
-
-    &::placeholder {
-      color: #76787d;
-    }
   }
+}
 
-  &__userlist {
-    display: flex;
-    flex-direction: column;
+.toggleNav {
+  display: none;
+  background: #fff;
+  position: absolute;
+  right: 0px;
+  top: 0.6rem;
+  border: 1px solid #000;
+  padding: 0.5rem 0.7rem;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    padding: 1rem 0.5rem;
+    min-width: 215px;
     gap: 1rem;
   }
+}
 
-  &__user {
-    display: flex;
-    box-shadow: 0px 0px 10px 0px #0000001a;
-    border-radius: 0.5rem;
-    cursor: pointer;
+@media screen and (max-width: 450px) {
+  .sidebar {
+    position: fixed;
+    width: 22rem;
+    padding: 1rem 1.5rem;
+  }
 
-    &_active .sidebar__userInfo {
-      background-color: #e0e0e0;
+  .sidebar_collapsed {
+    transform: translateX(-100%);
+    & input {
+      display: none;
     }
   }
 
-  &__username {
-    font-weight: 700;
+  .toggleNav {
+    display: block;
   }
+}
 
-  &__userInfo {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    border-radius: 0 0.5rem 0.5rem 0;
+@media screen and (max-width: 375px) {
+  .sidebar {
+    width: 20rem;
+    &:not(.sidebar_collapsed) {
+      .toggleNav {
+        right: 10px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .sidebar {
+    width: 16.5rem;
   }
 }

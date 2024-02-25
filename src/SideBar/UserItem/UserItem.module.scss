@@ -1,8 +1,7 @@
 .userItem {
   display: flex;
-  box-shadow: 0px 0px 10px 0px #0000001a;
+  box-shadow: $boxShadow;
   border-radius: 0.5rem;
-  // width: 100%;
   cursor: pointer;
 }
 

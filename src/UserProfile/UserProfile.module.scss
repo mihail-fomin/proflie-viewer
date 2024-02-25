@@ -1,10 +1,13 @@
+@import '../assets/styles/variables.scss';
+
 .wrapper {
-  width: 60rem;
   flex: 1 1 60rem;
-  border-left: 1px solid #dededd;
-  padding: 1.5rem;
   display: flex;
   justify-content: center;
+  padding: 1.5rem;
+  width: 60rem;
+  min-height: 589px;
+  border-left: 1px solid #dededd;
 }
 
 .userCard {
@@ -32,7 +35,7 @@
 .email,.phone,.about {
   & span, label {
     font-weight: 600;
-    color: #333333;
+    color: $boldTextColor;
   }
 }
 
