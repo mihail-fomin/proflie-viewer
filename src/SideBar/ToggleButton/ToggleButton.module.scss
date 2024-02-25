@@ -1,0 +1,25 @@
+.toggleNav {
+  position: absolute;
+  right: 0px;
+  top: 0.6rem;
+  display: none;
+  padding: 0.5rem 0.7rem;
+  border: 1px solid #000;
+  background: #fff;
+}
+
+@media screen and (max-width: 450px) {
+  .toggleNav {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .sidebar {
+    &:not(.sidebar_collapsed) {
+      .toggleNav {
+        right: 10px;
+      }
+    }
+  }
+}

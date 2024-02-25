@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import { useDebounceValue } from 'usehooks-ts'
+import classNames from 'classnames'
+
 import styles from './SideBar.module.scss'
 import UserList from './UserList/UserList'
 import SearchInput from './SearchInput/SearchInput'
-import { useDebounceValue } from 'usehooks-ts'
-import { ArrowLeftIcon, BarsIcon } from '../utils/Icons.js'
-import classNames from 'classnames'
 import { processSearchQuery } from '../utils/index.js'
+import ToggleButton from './ToggleButton/ToggleButton.js'
 
 const SideBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
@@ -21,15 +22,7 @@ const SideBar = () => {
         [styles.sidebar_collapsed]: collapsed,
       })}
     >
-      <button
-        className={styles.toggleNav}
-        onClick={() => {
-          setCollapsed(!collapsed)
-        }}
-      >
-        {collapsed ? <BarsIcon /> : <ArrowLeftIcon />}
-      </button>
-
+      <ToggleButton collapsed={collapsed} setCollapsed={setCollapsed} />
       <h2>Поиск сотрудников</h2>
       <SearchInput value={searchQuery} onChange={setSearchQuery} />
       <h2>Результаты</h2>
