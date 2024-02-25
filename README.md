@@ -1,32 +1,37 @@
-# React + TypeScript + Vite
+# Cтраницf поиска сотрудников с предпросмотром профиля Profile Viewer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Описание
+Profile Viewer - это веб-приложение, которое позволяет просматривать профили пользователей. Приложение позволяет выполнять поиск пользователей по их идентификатору или имени, а также просматривать дополнительные сведения о каждом пользователе.
 
-Currently, two official plugins are available:
+## Использование
+1. На главной странице приложения располагается боковая панель (SideBar), где можно выполнить поиск пользователей и просмотреть результаты.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+2. Введите идентификатор или имя пользователя в поле ввода "Поиск сотрудников" и нажмите Enter или кнопку "Поиск". Поисковой ввод провалидирован таким образом, чтобы пользователь мог вводить только валидные символы - латиница, цифры, символы "," или " ". Данное поведение позволит избежать ошибок с вводом неверных параметров запроса.
 
-## Expanding the ESLint configuration
+3. После ввода запроса и нажатия Enter или кнопки "Поиск" в списке результатов отобразятся пользователи, соответствующие введенному запросу.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+4. Выберите пользователя из списка, чтобы просмотреть его профиль. Полная информация о пользователе будет отображена в центральной части приложения.
 
-- Configure the top-level `parserOptions` property like this:
+## Компоненты
+### SideBar
+Боковая панель, которая содержит поле ввода для поиска пользователей и список результатов.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+### UserList
+Компонент, отображающий список пользователей на основе введенного запроса.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### UserProfile
+Компонент, отображающий полную информацию о выбранном пользователе.
 
-# proflie-viewer
+### SearchInput
+Компонент для ввода текста для поиска пользователей.
+
+## Технологии
+- React.js
+- ReduxTooklit, RTK Query
+- SCSS
+- TypeScript
+- Vite
+
+## Автор
+Михаил Фомин [GitHub](https://github.com/mihail-fomin)
+
