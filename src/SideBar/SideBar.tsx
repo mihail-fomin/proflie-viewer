@@ -5,11 +5,15 @@ import SearchInput from './SearchInput/SearchInput'
 import { useDebounceValue } from 'usehooks-ts'
 import { ArrowLeftIcon, BarsIcon } from '../utils/Icons.js'
 import classNames from 'classnames'
+import { processSearchQuery } from '../utils/index.js'
 
 const SideBar = () => {
   const [searchQuery, setSearchQuery] = useState<string>('')
-  const [debouncedValue] = useDebounceValue(searchQuery, 500)
-  const [collapsed, setCollapsed] = useState(false)
+
+  const processedSearchQuery = processSearchQuery(searchQuery)
+
+  const [debouncedValue] = useDebounceValue(processedSearchQuery, 500)
+  const [collapsed, setCollapsed] = useState<boolean>(false)
 
   return (
     <nav
